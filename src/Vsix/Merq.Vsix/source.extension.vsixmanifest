@@ -4,7 +4,7 @@
                  xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
     <Identity Id="Merq" Version="|Merq.Vsix;GetVersion|" Language="en-US" Publisher="Mobile Essentials" />
-    <DisplayName>Command Bus, Event Stream and Async Manager</DisplayName>
+    <DisplayName>Merq</DisplayName>
     <Description xml:space="preserve">Provides ICommandBus, IEventStream and IAsyncManager MEF services for loosely coupled Visual Studio extension components communication and integration.</Description>
     <MoreInfo>https://github.com/MobileEssentials/Merq</MoreInfo>
     <License>LICENSE</License>
@@ -12,7 +12,7 @@
     <PreviewImage>200.png</PreviewImage>
     <Tags>vsix</Tags>
   </Metadata>
-  <Installation>
+  <Installation SystemComponent="|Merq.Vsix;GetSystemComponent|">
     <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[11.0,)" />
   </Installation>
   <Dependencies>
