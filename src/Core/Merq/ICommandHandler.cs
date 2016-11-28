@@ -6,6 +6,10 @@ namespace Merq
 	/// Marker interface for all command handlers, whether synchronous or asynchronous, 
 	/// allowing the <see cref="ICommandBus"/> to receive both.
 	/// </summary>
+	/// <dev>
+	/// This interface is marked not-browsable because command handlers 
+	/// should always implement one of the generic variants below.
+	/// </dev>
 	[EditorBrowsable (EditorBrowsableState.Never)]
 	public interface ICommandHandler { }
 

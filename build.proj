@@ -47,10 +47,6 @@
 		<Exec Command="rmdir $(Out) /S /Q" ContinueOnError="true" StandardOutputImportance="low" />
 		<Message Text="Build properties: $(CommonBuildProperties)" Importance="high" />
 		<MSBuild Projects="@(Solution)" Properties="$(CommonBuildProperties)" />
-
-		<ItemGroup>
-			<NuSpec Include="src\**\*.nuspec" Exclude="src\**\obj\*\*.nuspec"   />
-		</ItemGroup>
 	</Target>
 
 	<Target Name="Package" DependsOnTargets="BuildInstaller;BuildPackages" />
@@ -67,8 +63,28 @@
 		<Copy SourceFiles='%(InstallerPackage.Identity)' DestinationFiles='$(Out)\%(InstallerPackage.Filename)%(InstallerPackage.Extension)' />
 	</Target>
 
-	<Target Name="BuildPackages" Condition="'@(NuSpec)' != ''">
-		<Exec Command='"$(NuGet)" Pack "%(NuSpec.Identity)" -Version $(Version) -Properties Id=%(NuSpec.Filename);Configuration=$(Configuration);Version=$(Version) -OutputDirectory $(Out)' />
+	<Target Name="BuildPackages" Returns="@(NuSpec)">
+    <ItemGroup>
+      <_NuSpec Include="src\**\*.nuspec" Exclude="src\**\obj\*\*.nuspec;src\packages\**\*.nuspec"   />
+      <!--<_SpecificVersionNuSpec Include="@(_NuSpec)" Condition="" />-->
+      <_ProjectNuSpec Include="@(_NuSpec)" Condition="Exists('%(RootDir)%(Directory)%(Filename).csproj')"   />
+      <NuSpec Include="@(_NuSpec)" Exclude="@(_ProjectNuSpec)">
+        <Version>$(Version)</Version>
+      </NuSpec>
+    </ItemGroup>
+
+    <MSBuild Projects="%(_ProjectNuSpec.RootDir)%(_ProjectNuSpec.Directory)%(_ProjectNuSpec.Filename).csproj"
+             Targets="GetVersion">
+      <Output ItemName="ProjectNuSpec" TaskParameter="TargetOutputs" />
+    </MSBuild>
+
+    <ItemGroup>
+      <NuSpec Include="$([System.IO.Path]::ChangeExtension('%(ProjectNuSpec.OriginalItemSpec)', '.nuspec'))">
+        <Version>%(ProjectNuSpec.Identity)</Version>
+      </NuSpec>
+    </ItemGroup>
+    
+		<Exec Command='"$(NuGet)" Pack "%(NuSpec.Identity)" -Version %(NuSpec.Version) -Properties Id=%(NuSpec.Filename);Configuration=$(Configuration);Version=%(NuSpec.Version) -OutputDirectory $(Out)' />
 	</Target>
 
 	<Import Project="$(PackagesPath)\MSBuilder.CodeTaskAssembly\build\MSBuilder.CodeTaskAssembly.props"

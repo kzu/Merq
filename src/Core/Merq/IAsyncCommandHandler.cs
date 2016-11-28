@@ -7,6 +7,10 @@ namespace Merq
 	/// <summary>
 	/// Marker interface for asynchronous command handlers.
 	/// </summary>
+	/// <dev>
+	/// This interface is marked not-browsable because command handlers 
+	/// should always implement one of the generic variants below.
+	/// </dev>
 	[EditorBrowsable (EditorBrowsableState.Never)]
 	public interface IAsyncCommandHandler : ICommandHandler { }
 
