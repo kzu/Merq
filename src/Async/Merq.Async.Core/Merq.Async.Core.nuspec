@@ -18,9 +18,9 @@
 				<dependency id="Merq.Async" version="$version$" />
 				<dependency id="Microsoft.VisualStudio.Threading" version="12.2.0" />
 			</group>
-			<group targetFramework="portable45-net45+win8+wpa81">
+			<group targetFramework="netstandard1.3">
 				<dependency id="Merq.Async" version="$version$" />
-				<dependency id="Microsoft.VisualStudio.Threading" version="14.1.114" />
+				<dependency id="Microsoft.VisualStudio.Threading" version="15.3.23" />
 			</group>
 		</dependencies>
 	</metadata>

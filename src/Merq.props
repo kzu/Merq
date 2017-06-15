@@ -23,6 +23,12 @@
 		<Out Condition=" '$(Out)' == '' ">$(OutputPath)</Out>
 		<ProjectNuSpec>$([System.IO.Path]::ChangeExtension($(MSBuildProjectFullPath), '.nuspec'))</ProjectNuSpec>
 		<GitInfoReportImportance>low</GitInfoReportImportance>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<!--
+		<GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+		<GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+		<GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+		-->
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<Optimize>false</Optimize>

@@ -1,66 +1,49 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{28226B72-AC06-45E6-BEC1-A3DF99365CC0}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Merq</RootNamespace>
-    <AssemblyName>Merq.Async.Portable.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Merq.props))\Merq.props" />
-  <PropertyGroup>
-    <DocumentationFile />
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Merq.Async.Core\Merq.Async.Core.Portable\Merq.Async.Core.Portable.csproj">
-      <Project>{d7589c3e-1818-4e14-b84d-a275f3218161}</Project>
-      <Name>Merq.Async.Core.Portable</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Merq.Async.TaskScheduler\Merq.Async.TaskScheduler.csproj">
-      <Project>{351e25f9-09d3-4718-b358-2be5ad29a33c}</Project>
-      <Name>Merq.Async.TaskScheduler</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Merq.Async\Merq.Async.csproj">
-      <Project>{9805dcd7-de83-4e6f-9b78-88851ab66568}</Project>
-      <Name>Merq.Async</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\..\StaFact.cs">
-      <Link>StaFact.cs</Link>
-    </Compile>
-    <Compile Include="..\Merq.Async.Tests\AsyncManagerSpec.cs">
-      <Link>AsyncManagerSpec.cs</Link>
-    </Compile>
-    <Compile Include="..\Merq.Async.Tests\AwaitExtensionsSpec.cs">
-      <Link>AwaitExtensionsSpec.cs</Link>
-    </Compile>
-    <Compile Include="..\Merq.Async.Tests\BaseAsyncManagerSpec.cs">
-      <Link>BaseAsyncManagerSpec.cs</Link>
-    </Compile>
-    <Compile Include="..\Merq.Async.Tests\TaskSchedulerAsyncManagerSpec.cs">
-      <Link>TaskSchedulerAsyncManagerSpec.cs</Link>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="project.json" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Merq.targets))\Merq.targets" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<RootNamespace>Merq</RootNamespace>
+		<TargetFramework>net46</TargetFramework>
+	</PropertyGroup>
+	<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Merq.props))\Merq.props" />
+	<PropertyGroup>
+		<DocumentationFile />
+		<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="PresentationCore" />
+		<Reference Include="PresentationFramework" />
+		<Reference Include="WindowsBase" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Merq.Async.Core\Merq.Async.Core.Portable\Merq.Async.Core.Portable.csproj" />
+		<ProjectReference Include="..\Merq.Async.TaskScheduler\Merq.Async.TaskScheduler.csproj" />
+		<ProjectReference Include="..\Merq.Async\Merq.Async.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="GitInfo" Version="1.1.65" />
+		<PackageReference Include="MSBuilder.ThisAssembly.Project" Version="0.3.4" />
+		<PackageReference Include="Microsoft.VisualStudio.Threading" Version="15.3.23" />
+		<PackageReference Include="xunit" Version="2.2.0" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="..\..\StaFact.cs">
+			<Link>StaFact.cs</Link>
+		</Compile>
+		<Compile Include="..\Merq.Async.Tests\AsyncManagerSpec.cs">
+			<Link>AsyncManagerSpec.cs</Link>
+		</Compile>
+		<Compile Include="..\Merq.Async.Tests\AwaitExtensionsSpec.cs">
+			<Link>AwaitExtensionsSpec.cs</Link>
+		</Compile>
+		<Compile Include="..\Merq.Async.Tests\BaseAsyncManagerSpec.cs">
+			<Link>BaseAsyncManagerSpec.cs</Link>
+		</Compile>
+		<Compile Include="..\Merq.Async.Tests\TaskSchedulerAsyncManagerSpec.cs">
+			<Link>TaskSchedulerAsyncManagerSpec.cs</Link>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+	</ItemGroup>
+	<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Merq.targets))\Merq.targets" />
 </Project>

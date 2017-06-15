@@ -1,0 +1,7 @@
+<Project>
+	<PropertyGroup>
+		<MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+		<AppendTargetFrameworkToOutputPath Condition="'$(AppendTargetFrameworkToOutputPath)' == ''">false</AppendTargetFrameworkToOutputPath>
+		<OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration>false</OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration>
+	</PropertyGroup>
+</Project>

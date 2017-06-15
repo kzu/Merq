@@ -3,6 +3,11 @@
 	<Import Project="..\..\Merq.props" />
 
 	<PropertyGroup>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+
 		<VerifyTargetVersion>false</VerifyTargetVersion>
 		<UseCodebase>true</UseCodebase>
 		<IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>

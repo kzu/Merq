@@ -22,14 +22,6 @@
 		</BuildDependsOn>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<Content Include="$(IntermediateOutputPath)$(BindingRedirects)">
-			<IncludeInVSIX>true</IncludeInVSIX>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<Link>$(BindingRedirects)</Link>
-		</Content>
-	</ItemGroup>
-
 	<ItemDefinitionGroup>
 		<!-- Facade assemblies don't have this metadata attribute, so default it to something. -->
 		<ReferencePath>
@@ -90,7 +82,13 @@
 
 		<ItemGroup>
 			<FileWrites Include="$(IntermediateOutputPath)$(BindingRedirects)" />
+			<Content Include="$(IntermediateOutputPath)$(BindingRedirects)">
+				<IncludeInVSIX>true</IncludeInVSIX>
+				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				<Link>$(BindingRedirects)</Link>
+			</Content>
 		</ItemGroup>
+
 	</Target>
 
 </Project>

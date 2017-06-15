@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26612.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Merq.Async", "Merq.Async\Merq.Async.csproj", "{F4EED9DB-3882-412F-BBE4-20F65C2C4328}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Merq.Async.Core.Desktop", "Merq.Async.Core\Merq.Async.Core.Desktop\Merq.Async.Core.Desktop.csproj", "{492AA664-6A90-4F8D-B59C-8B55804AF771}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Merq.Async.Core.Portable", "Merq.Async.Core\Merq.Async.Core.Portable\Merq.Async.Core.Portable.csproj", "{9E8F6DEF-0E07-4E6B-95DC-433B77D2CCF9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Merq.Async.Portable.Tests", "Merq.Async.Portable.Tests\Merq.Async.Portable.Tests.csproj", "{538FE4D3-2CA7-4A57-9770-375534C266E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Merq.Async.TaskScheduler", "Merq.Async.TaskScheduler\Merq.Async.TaskScheduler.csproj", "{AE05B3A2-F9BE-48D3-AD3A-965D06141DCE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Merq.Async.Tests", "Merq.Async.Tests\Merq.Async.Tests.csproj", "{DABFAF19-21CB-4259-A89C-F4059E28BDA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4EED9DB-3882-412F-BBE4-20F65C2C4328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4EED9DB-3882-412F-BBE4-20F65C2C4328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4EED9DB-3882-412F-BBE4-20F65C2C4328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4EED9DB-3882-412F-BBE4-20F65C2C4328}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492AA664-6A90-4F8D-B59C-8B55804AF771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492AA664-6A90-4F8D-B59C-8B55804AF771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492AA664-6A90-4F8D-B59C-8B55804AF771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492AA664-6A90-4F8D-B59C-8B55804AF771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E8F6DEF-0E07-4E6B-95DC-433B77D2CCF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E8F6DEF-0E07-4E6B-95DC-433B77D2CCF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E8F6DEF-0E07-4E6B-95DC-433B77D2CCF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E8F6DEF-0E07-4E6B-95DC-433B77D2CCF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{538FE4D3-2CA7-4A57-9770-375534C266E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{538FE4D3-2CA7-4A57-9770-375534C266E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{538FE4D3-2CA7-4A57-9770-375534C266E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{538FE4D3-2CA7-4A57-9770-375534C266E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE05B3A2-F9BE-48D3-AD3A-965D06141DCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE05B3A2-F9BE-48D3-AD3A-965D06141DCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE05B3A2-F9BE-48D3-AD3A-965D06141DCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE05B3A2-F9BE-48D3-AD3A-965D06141DCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DABFAF19-21CB-4259-A89C-F4059E28BDA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DABFAF19-21CB-4259-A89C-F4059E28BDA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DABFAF19-21CB-4259-A89C-F4059E28BDA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DABFAF19-21CB-4259-A89C-F4059E28BDA3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {241342E1-96E2-4CB6-AF47-9151CCC7660A}
+	EndGlobalSection
+EndGlobal

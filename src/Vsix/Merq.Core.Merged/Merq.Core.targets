@@ -2,11 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Merq.targets))\Merq.targets" />
 
-	<PropertyGroup>
-		<ILMerge>$(NuGetPackageRoot)ILRepack\2.0.12\tools\ILRepack.exe</ILMerge>
-	</PropertyGroup>
-
-	<Target Name="ILMerge" 
+	<Target Name="ILRepack" 
 			AfterTargets="CoreCompile" 
 			DependsOnTargets="CoreCompile" 
 			Inputs="@(IntermediateAssembly)"
@@ -22,17 +18,17 @@
 			<LibDir Include="@(UnmergedAssembliesDir->Distinct())" />
 		</ItemGroup>
 		<Message Importance="high" Text="LibDir: %(LibDir.Identity)" />
-		<Exec Command="&quot;$(ILMerge)&quot; @(LibDir->'/lib:&quot;%(Identity).&quot;', ' ') /internalize /keyfile:&quot;$(AssemblyOriginatorKeyFile)&quot; /targetplatform:&quot;v4,$(FullFrameworkReferenceAssemblyPaths.TrimEnd(\\))&quot; /out:&quot;@(IntermediateAssembly->'%(FullPath)')&quot; &quot;@(IntermediateAssembly->'%(FullPath)')&quot; @(MergedAssemblies->'&quot;%(FullPath)&quot;', ' ')"
+		<Exec Command="&quot;$(ILRepack)&quot; @(LibDir->'/lib:&quot;%(Identity).&quot;', ' ') /internalize /keyfile:&quot;$(AssemblyOriginatorKeyFile)&quot; /targetplatform:&quot;v4,$(FullFrameworkReferenceAssemblyPaths.TrimEnd(\\))&quot; /out:&quot;@(IntermediateAssembly->'%(FullPath)')&quot; &quot;@(IntermediateAssembly->'%(FullPath)')&quot; @(MergedAssemblies->'&quot;%(FullPath)&quot;', ' ')"
 			  StandardErrorImportance="high"
 			  StandardOutputImportance="high"
 			  ConsoleToMSBuild="true"
 			  ContinueOnError="true">
-			<Output TaskParameter="ConsoleOutput" PropertyName="ILMergeOutput"/>
+			<Output TaskParameter="ConsoleOutput" PropertyName="ILRepackOutput"/>
 			<Output TaskParameter="ExitCode" PropertyName="ExitCode"/>
 		</Exec>
-		<Message Importance="high" Text="$(ILMergeOutput)" Condition="'$(ExitCode)' != '0'" />
-		<Error Text="$(ILMergeOutput)" Condition="'$(ExitCode)' != '0'" />
-		<Delete Files="@(ILMergeAssemblies -> '$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
+		<Message Importance="high" Text="$(ILRepackOutput)" Condition="'$(ExitCode)' != '0'" />
+		<Error Text="$(ILRepackOutput)" Condition="'$(ExitCode)' != '0'" />
+		<Delete Files="@(MergedAssemblies -> '$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
 	</Target>
 
 </Project>

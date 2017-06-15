@@ -1,0 +1,8 @@
+<Project>
+	<PropertyGroup>
+		<ResolveAssemblyReferencesDependsOn>
+			$(ResolveAssemblyReferencesDependsOn);
+			ResolveProjectReferences
+		</ResolveAssemblyReferencesDependsOn>
+	</PropertyGroup>
+</Project>

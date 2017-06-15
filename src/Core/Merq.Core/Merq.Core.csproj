@@ -1,47 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{33BDD9D1-3E01-49C1-AB46-50941DFFD5D4}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Merq</RootNamespace>
-    <AssemblyName>Merq.Core</AssemblyName>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
-    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
-  </PropertyGroup>
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Merq.props))\Merq.props" />
-  <ItemGroup>
-    <Compile Include="CommandBus.cs" />
-    <Compile Include="EventStream.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="SubjectWrapper.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Merq.Core.nuspec" />
-    <None Include="project.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Merq\Merq.csproj">
-      <Project>{c6b16d17-4f6a-4457-8497-92068e53de39}</Project>
-      <Name>Merq</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Merq.targets))\Merq.targets" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<RootNamespace>Merq</RootNamespace>
+		<TargetFramework>netstandard1.1</TargetFramework>
+	</PropertyGroup>
+	<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Merq.props))\Merq.props" />
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+			<CustomToolNamespace>Merq.Properties</CustomToolNamespace>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="GitInfo" Version="1.1.65" />
+		<PackageReference Include="IFluentInterface" Version="2.0.3" />
+		<PackageReference Include="Microsoft.CSharp" Version="4.0.1" />
+		<PackageReference Include="MSBuilder.ThisAssembly.Project" Version="0.3.3" />
+		<PackageReference Include="netfx-System.StringResources" Version="3.1.5" />
+		<PackageReference Include="System.Reactive" Version="3.0.0" />
+		<PackageReference Include="System.Runtime" Version="4.3.0" />
+		<PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Merq\Merq.csproj" />
+	</ItemGroup>
+	<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Merq.targets))\Merq.targets" />
 </Project>
